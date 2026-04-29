@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WATI Automation Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WATI Automation Agent</h1>
+      <p class="subtitle">
+        Tell me what you want to do — I'll figure out which WATI APIs to call,
+        show you a plan, and run it after you confirm.
+      </p>
+      <div class="session-bar">
+        <span class="session-label">Session:</span>
+        <code id="session-id">—</code>
+        <button id="reset-btn" type="button">New session</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="examples">
+        <h3>Try one of these</h3>
+        <ul>
+          <li><button class="example">Find all contacts tagged 'VIP' and send them the renewal_reminder template with their name filled in.</button></li>
+          <li><button class="example">Escalate 6281234567890 to the Support team and add the tag 'escalated'.</button></li>
+          <li><button class="example">Send a broadcast with the flash_sale template to all contacts who have city = 'Jakarta'.</button></li>
+          <li><button class="example">List the available templates.</button></li>
+        </ul>
+      </section>
+
+      <section class="chat-pane">
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="confirm-bar" class="confirm-bar hidden">
+          <span>Awaiting confirmation:</span>
+          <button id="run-btn" type="button" class="primary">Run plan</button>
+          <button id="dryrun-btn" type="button">Dry run</button>
+          <button id="cancel-btn" type="button" class="danger">Cancel</button>
+        </div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" type="text" placeholder="e.g. Tag 6281234567890 as 'lead'." autocomplete="off" />
+          <button type="submit" class="primary">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
