@@ -1,0 +1,248 @@
+:root {
+  --bg: #0e1117;
+  --panel: #161b22;
+  --panel-2: #1f2630;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #2da44e;
+  --accent-2: #316dca;
+  --danger: #cf222e;
+  --border: #30363d;
+  --code-bg: #0b0f15;
+  --warn: #d29922;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+header {
+  padding: 24px 32px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 6px 0 12px;
+  font-size: 13px;
+  max-width: 640px;
+}
+
+.session-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.session-bar code {
+  background: var(--panel);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  height: calc(100vh - 110px);
+}
+
+.examples {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.examples h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.6px;
+  margin: 0 0 12px;
+}
+
+.examples ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.examples button.example {
+  width: 100%;
+  text-align: left;
+  font-size: 12.5px;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.examples button.example:hover {
+  border-color: var(--accent-2);
+}
+
+.chat-pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.msg {
+  max-width: 760px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: var(--accent-2);
+  color: white;
+}
+
+.msg.assistant {
+  align-self: flex-start;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.msg.assistant.preview {
+  border-left: 3px solid var(--warn);
+}
+
+.msg.assistant.success {
+  border-left: 3px solid var(--accent);
+}
+
+.msg.assistant.failure {
+  border-left: 3px solid var(--danger);
+}
+
+.msg.assistant.dryrun {
+  border-left: 3px solid var(--accent-2);
+}
+
+.msg pre {
+  background: var(--code-bg);
+  padding: 8px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.confirm-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 32px;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+  align-items: center;
+}
+
+.confirm-bar.hidden {
+  display: none;
+}
+
+.confirm-bar span {
+  margin-right: 8px;
+  color: var(--warn);
+  font-size: 13px;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 14px 32px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.chat-form input {
+  flex: 1;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.chat-form input:focus {
+  outline: none;
+  border-color: var(--accent-2);
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent-2);
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+button.primary:hover {
+  background: #2c974b;
+  border-color: #2c974b;
+}
+
+button.danger {
+  background: var(--panel-2);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+button.danger:hover {
+  background: rgba(207, 34, 46, 0.1);
+}
+
+#reset-btn {
+  font-size: 11px;
+  padding: 4px 8px;
+}
